@@ -1,12 +1,10 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./routes";
-import Alimento from "./components/alimento";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
 
 function App() {
   return (
     <BrowserRouter>
-      <Alimento/>
       <Routes />
     </BrowserRouter>
   );

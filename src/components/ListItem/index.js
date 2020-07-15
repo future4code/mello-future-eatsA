@@ -1,23 +1,38 @@
 import React from 'react';
 
-import { Container } from './styles';
-import burger from '../../assets/images/burger.png';
+import {
+  Adicionar,
+  ContainerDown,
+  ContainerTop,
+  Conteudo,
+  Descricao,
+  Image,
+  Preco,
+  Titulo,
+  View,
+  Amount,
+} from './styles';
 
-function ListItem() {
+const ListItem = () => {
   return (
-    <Container>
-      <img src={burger} alt="burger" />
-      <h2>Stencil</h2>
-      <div>
-        <span>2</span>
-      </div>
-      <div>
-        <p>Pão, carne, queijo, cebola roxa, tomate, alface e molho.</p>
-        <p>R$ 46,00</p>
-        <span>remover</span>
-      </div>
-    </Container>
+    <View>
+      <Image src="https://picsum.photos/500/700"></Image>
+      <Conteudo>
+        <Amount>
+          <p>2</p>
+        </Amount>
+        <ContainerTop>
+          <Titulo>Bullger</Titulo>
+
+          <Descricao>Pão, carne, queijo</Descricao>
+        </ContainerTop>
+        <ContainerDown>
+          <Preco>R$20,00</Preco>
+          <Adicionar>Adicionar</Adicionar>
+        </ContainerDown>
+      </Conteudo>
+    </View>
   );
-}
+};
 
 export default ListItem;

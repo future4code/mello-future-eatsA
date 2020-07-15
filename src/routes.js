@@ -1,14 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import RestaurantCard from './components/RestaurantCard'
-import FeedPage from './pages/FeedPage'
-import Login from './pages/login';
+
+import Login from './pages/Cart';
+import FeedPage from './pages/FeedPage';
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Login} />
-      <Route path='/inicio' exact component={FeedPage} />
+      <Route path='/feed' exact component={FeedPage}/>
+        
     </Switch>
   );
 }

@@ -6,11 +6,11 @@ import {
 function RestaurantCard(props) {
   return(
     <Main>
-      <img src={props.logo} />
+      <img src={props.imageRestaurant} />
       <p className='Restaurante'>{props.restaurantName}</p>
       <div>
-        <span>{props.deliveryTime}</span>
-        <span>{props.shipping}</span>
+        <span>{props.deliveryTime} min</span>
+        <span>Frete R$ {props.shipping}</span>
       </div>
     </Main>
   )

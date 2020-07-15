@@ -18,10 +18,22 @@ body{
   align-items: center;
 }
 body, input, button {
-  font:15px Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 button{
   cursor:pointer;
+  border: none;
+  width: 328px;
+  height: 42px;
+  border-radius: 2px;
+  background-color: #5cb646;
+  transition: 0.5s;
+
+  :hover {
+    transition: 0.5s;
+    background-color: #5cd001;
+  }
 }
 
 input {
@@ -29,12 +41,44 @@ input {
   height: 56px;
   border-radius: 2px;
   border: solid 1px #b8b8b8;
+
 }
 
 .feed {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+footer {
+  border: none;
+  border-top: solid 1px #b8b8b8;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  background-color: #fff;
+  display: flex;
+
+  div {
+    width: 120px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+label {
+  width: 78px;
+  height: 18px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.29px;
+  color: #b8b8b8;
 }
 
 `

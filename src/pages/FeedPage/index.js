@@ -3,12 +3,30 @@ import { MdSearch } from "react-icons/md";
 import axios from 'axios';
 import styled from 'styled-components'
 import RestaurantCard from '../../components/RestaurantCard';
-import FilterOfFeed from '../../components/FilterOfFeed';
+import HomeIcon from '../../assets/images/homepage.svg'
+import ShoppingCart from '../../assets/images/shopping-cart.svg'
+import Avatar from '../../assets/images/avatar.svg'
+import { useHistory } from 'react-router-dom';
 
 const AppContainer = styled.div`
 
   input {
     padding-left: 56.3px;
+  }
+`
+
+const Filters = styled.div`
+  max-width: 360px;
+  width: 100%;
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
+  overflow: auto;
+
+  span {
+    margin-left: 16px;
+    padding: 16px;
   }
 `
 
@@ -28,10 +46,18 @@ const SearchIcon = styled.span`
   left: 0px;
 `;
 
+
+
 export default function FeedPage() {
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsFilter, setRestaurantsFilter] = useState([])
   const [search, setSearch] = useState('')
+
+  const history = useHistory()
+
+
+  const categories = ['Árabe', 'Asiática', 'Hamburguer', 'Italiana', 'Sorvetes', 'Carnes', 'Mexicana', 'Baiana', 'Petiscos']
+
 
   useEffect(() => {
     getRestaurants()
@@ -81,20 +107,24 @@ export default function FeedPage() {
     }))
   }
 
+  
+
 
   return <AppContainer>
     <Search>
-      <input onChange={() => onChangeSearch} placeholder="Restaurante"/>
+      <input onChange={onChangeSearch} value={search} placeholder="Restaurante"/>
       <SearchIcon>
         <MdSearch size={24} color={"#b8b8b8"}/>
       </SearchIcon>
     </Search>
 
-    <FilterOfFeed 
-      category={restaurants}
-    />
+    <Filters>
+      {categories.map((item) => {
+        return <span key={item} onClick={() => filterByCategory(item)}>{item}</span>
+      })}
+    </Filters>
     
-    {restaurants.map(restaurant => {
+    {restaurantsFilter.map(restaurant => {
       return (
         <div className="feed" key={restaurant.id}>
           <RestaurantCard
@@ -107,7 +137,17 @@ export default function FeedPage() {
       )
     })}
     <footer>
-      
+      <div>
+        <img src={HomeIcon} onClick={getRestaurants}/>
+      </div>
+
+      <div>
+        <img src={ShoppingCart}/>
+      </div>
+
+      <div>
+        <img src={Avatar} onClick={() => history.push('/')}/>
+      </div>
     </footer>
   </AppContainer>;
 }

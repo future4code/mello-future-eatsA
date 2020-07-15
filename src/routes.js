@@ -8,9 +8,8 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Login} />
-      <Route path='/feed'>
-        <FeedPage />
-      </Route>
+      <Route path='/feed' exact component={FeedPage}/>
+        
     </Switch>
   );
 }

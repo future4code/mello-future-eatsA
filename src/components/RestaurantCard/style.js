@@ -6,6 +6,7 @@ export const Main = styled.main`
   width: 328px;
   height: 188px;
   border: 1px solid #b8b8b8;
+  margin-top: 8px;
   border-radius: 8px;
   img {
     width: 328px;

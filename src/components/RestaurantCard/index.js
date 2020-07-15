@@ -6,11 +6,11 @@ import {
 function RestaurantCard(props) {
   return(
     <Main>
-      <img src={'http://soter.ninja/futureFoods/logos/habibs.jpg'} />
-      <p className='Restaurante'>Nome Restaurante</p>
+      <img src={props.imageRestaurant} />
+      <p className='Restaurante'>{props.restaurantName}</p>
       <div>
-        <span>{props.restaurantName}</span>
-        <span>Frete R$ 6,00</span>
+        <span>{props.deliveryTime} min</span>
+        <span>Frete R$ {props.shipping}</span>
       </div>
     </Main>
   )

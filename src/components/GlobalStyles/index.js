@@ -36,7 +36,7 @@ button{
   }
 }
 
-input {
+ input {
   width: 328px;
   height: 56px;
   border-radius: 2px;
@@ -81,4 +81,4 @@ label {
   color: #b8b8b8;
 }
 
-`
+`;

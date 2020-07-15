@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  Adicionar,
+  RemoveItem,
   ContainerDown,
   ContainerTop,
   Conteudo,
@@ -28,7 +28,7 @@ const ListItem = () => {
         </ContainerTop>
         <ContainerDown>
           <Preco>R$20,00</Preco>
-          <Adicionar>Adicionar</Adicionar>
+          <RemoveItem>Remover</RemoveItem>
         </ContainerDown>
       </Conteudo>
     </View>

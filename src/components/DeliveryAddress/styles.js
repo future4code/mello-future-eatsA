@@ -4,10 +4,10 @@ export const Container = styled.div`
   width: 360px;
   height: 76px;
   background-color: #eeeeee;
+  padding: 5px;
 `;
 
 export const Address = styled.p`
-  padding: ${(props) => props.padding};
   font-family: Roboto;
   font-size: 16px;
   font-weight: normal;

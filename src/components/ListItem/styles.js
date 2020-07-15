@@ -7,11 +7,12 @@ export const View = styled.div`
   border: 1px solid #b8b8b8;
   border-radius: 8px;
   margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 `;
 
 export const Image = styled.img`
   max-width: 100%;
-  max-height: 100%;
   width: 96px;
   height: 112px;
 `;
@@ -42,30 +43,50 @@ export const Conteudo = styled.div`
 export const Titulo = styled.div`
   font-size: 20px;
   font-weight: 800;
+  color: #5cb646;
 `;
 
-export const Descricao = styled.div``;
-export const Preco = styled.div``;
+export const Descricao = styled.div`
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+`;
+export const Preco = styled.div`
+  color: #000;
+`;
+
 export const Amount = styled.span`
   margin: 0;
-  padding: 0;
-  margin-left: 186px;
-  margin-top: -20px;
+  padding: 2px;
+  margin-left: 191px;
+  margin-top: -21px;
+  margin-right: -2px;
   border: 1px solid green;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: #5cb646;
+  font-size: 16px;
   p {
     padding: 0;
     margin: 0;
-    margin-left: 12px;
+    margin-left: 2px;
   }
 `;
-export const Adicionar = styled.button`
+export const RemoveItem = styled.button`
   background: transparent;
-  border-radius: 8px;
-  margin-top: -10px;
+  margin-top: -4px;
+  font-size: 12px;
   width: 97px;
   height: 33px;
   padding: 0 12px 0 12px;
-  margin-right: -1px;
+  margin-right: -2px;
   border: 1px solid #e02020;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  color: #e02020;
+
+  :hover {
+    background-color: #e01017;
+    color: #fff;
+  }
 `;

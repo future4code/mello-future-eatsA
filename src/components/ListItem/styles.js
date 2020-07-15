@@ -57,30 +57,32 @@ export const Preco = styled.div`
 
 export const Amount = styled.span`
   margin: 0;
-  padding: 0;
+  padding: 2px;
   margin-left: 191px;
-  margin-top: -20px;
+  margin-top: -21px;
   margin-right: -2px;
   border: 1px solid green;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
   color: #5cb646;
   font-size: 16px;
   p {
     padding: 0;
     margin: 0;
-    margin-left: 5px;
+    margin-left: 2px;
   }
 `;
 export const RemoveItem = styled.button`
   background: transparent;
-  border-radius: 8px;
-  margin-top: -2px;
+  margin-top: -4px;
   font-size: 12px;
   width: 97px;
   height: 33px;
   padding: 0 12px 0 12px;
   margin-right: -2px;
   border: 1px solid #e02020;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
   color: #e02020;
 
   :hover {

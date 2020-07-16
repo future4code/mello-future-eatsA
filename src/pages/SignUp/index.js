@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Body, Logo, ContainerForm } from './styles';
 import Api from '../../Api';
-import { useForm } from '../../components/Hooks/useForm';
+import { useForm } from '../../Hooks/useForm';
 import imgLogo from '../../assets/images/logo-future-eats-invert.png';
 
 export default function SignUp() {

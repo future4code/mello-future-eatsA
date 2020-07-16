@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Body, Header, ContainerForm } from './styles';
 import Api from '../../Api';
-import { useForm } from '../../components/Hooks/useForm';
+import { useForm } from '../../Hooks/useForm';
 
 export default function AddressEdit() {
   const history = useHistory();

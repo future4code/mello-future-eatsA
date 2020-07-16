@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Body, Header, ContainerForm } from './styles';
+import { Body, ContainerForm } from './styles';
 import Api from '../../Api';
+import FooterProfile from '../../components/FooterProfile';
+import Header from '../../components/Header';
 
 export default function ProfileEdit() {
   const history = useHistory();
@@ -70,7 +72,7 @@ export default function ProfileEdit() {
 
   return (
     <Body>
-      <Header>Editar perfil</Header>
+      <Header to="/perfil" title="Editar" />
       <ContainerForm onSubmit={handleSubmit}>
         <label htmlFor="name">Nome*</label>
         <input
@@ -98,6 +100,7 @@ export default function ProfileEdit() {
         />
         <button>Salvar</button>
       </ContainerForm>
+      <FooterProfile profileIcon={true} />
     </Body>
   );
 }

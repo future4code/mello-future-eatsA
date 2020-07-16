@@ -1,8 +1,8 @@
 import React from 'react';
-import { Body, Logo, ContainerForm } from './styles';
+import { Body, ContainerForm } from './styles';
 import Api from '../../Api';
 import { useForm } from '../../Hooks/useForm';
-import imgLogo from '../../assets/images/logo-future-eats-invert.png';
+import Header from '../../components/Header';
 
 export default function AddressRegister() {
   const { form, onChange, resetForm } = useForm({
@@ -54,8 +54,8 @@ export default function AddressRegister() {
 
   return (
     <Body>
-      <Logo src={imgLogo} alt="Logo" />
-      <h4>Cadastrar</h4>
+      <Header to="/login" />
+      <p>Meu endereço</p>
       <ContainerForm onSubmit={handleSubmit}>
         <label htmlFor="street">Logradouro*</label>
         <input

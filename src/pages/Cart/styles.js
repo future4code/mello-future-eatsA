@@ -85,7 +85,7 @@ export const MethodPayment = styled.div`
     margin-right: 8px;
   }
   button {
-    margin-top: 16px;
+    margin-top: 30px;
   }
 `;
 export const Options = styled.label`

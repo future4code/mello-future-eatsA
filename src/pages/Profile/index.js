@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Body, Header, ContainerOrder, OrderInfo } from './styles';
+import { Body, ContainerOrder, OrderInfo, ContainerOrders } from './styles';
+import Header from '../../components/Header';
 import Api from '../../Api';
 import AddressBox from '../../components/AddressBox';
 import ProfileBox from '../../components/ProfileBox';
 import SectionTitle from '../../components/SectionTitle';
+import FooterProfile from '../../components/FooterProfile';
 
 export default function Profile() {
   const history = useHistory();
@@ -17,11 +19,6 @@ export default function Profile() {
   };
   const goToProfileEdit = () => {
     history.push('/editar-perfil');
-  };
-
-  const logout = () => {
-    window.localStorage.clear();
-    history.push('/');
   };
 
   const getProfile = () => {
@@ -53,6 +50,7 @@ export default function Profile() {
         console.log('Erro');
       });
   };
+  console.log(getOrdersHistory);
 
   useEffect(() => {
     getProfile();
@@ -60,7 +58,7 @@ export default function Profile() {
 
   return (
     <Body>
-      <Header margin={'100px'}>Meu perfil</Header>
+      <Header to="/feed" title="Meu perfil"></Header>
       <ProfileBox
         onClick={goToProfileEdit}
         name={profile.name}
@@ -70,18 +68,24 @@ export default function Profile() {
       <AddressBox endereco={profile.address} onClick={goToAddressEdit} />
       <SectionTitle title={'Histórico de pedidos'} />
 
-      {historyOrder.length > 0 && (
-        <ContainerOrder>
-          <OrderInfo>
-            <span id="store">store</span>
-            <span id="date">date</span>
-            <span id="value">value</span>
-          </OrderInfo>
-        </ContainerOrder>
-      )}
-      {historyOrder.length === 0 && <p>Você não realizou nenhum pedido</p>}
+      <ContainerOrders>
+        {historyOrder.length > 0 && (
+          <ContainerOrder>
+            <OrderInfo>
+              <span id="store">store</span>
+              <span id="date">date</span>
+              <span id="value">value</span>
+            </OrderInfo>
+          </ContainerOrder>
+        )}
 
-      <button onClick={logout}>Logout</button>
+        {historyOrder.length === 0 && (
+          <ContainerOrder>
+            <p>Você não realizou nenhum pedido</p>
+          </ContainerOrder>
+        )}
+      </ContainerOrders>
+      <FooterProfile profileIcon={true} />
     </Body>
   );
 }

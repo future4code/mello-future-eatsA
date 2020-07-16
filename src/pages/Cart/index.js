@@ -14,10 +14,13 @@ import {
 
 import DevliveryAddress from '../../components/DeliveryAddress';
 import ListItem from '../../components/ListItem';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 function Cart() {
   return (
     <>
+      <Header to="/feed" title="Meu carrinho" />
       <View>
         <DevliveryAddress />
         <PropertyDetails>
@@ -45,6 +48,7 @@ function Cart() {
           <button>Confirmar</button>
         </MethodPayment>
       </View>
+      <Footer cartIcon={true} />
     </>
   );
 }

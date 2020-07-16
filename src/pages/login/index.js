@@ -14,12 +14,11 @@ function Login() {
   };
 
   const goToRegisterAddress = () => {
-    history.push('/registrar-endereco');
+    history.push('/cadastrar-endereco');
   };
 
-  // ALTERAR O HISTORY ABAIXO PARA FEED e no useEffect tbm
   const goToFeedPage = () => {
-    history.push('/perfil');
+    history.push('/feed');
   };
 
   const handleUpdateEmail = (event) => {
@@ -41,6 +40,7 @@ function Login() {
 
       window.localStorage.setItem('token', response.data.token);
       alert('Login realizado com sucesso!');
+      console.log('Login realizado com sucesso!');
 
       if (response.data.user.hasAddress === false) {
         goToRegisterAddress();
@@ -57,15 +57,15 @@ function Login() {
     const token = window.localStorage.getItem('token');
     if (token !== null) {
       alert('Você já está logado!');
-      // ALTERAR PARA O FEED
-      history.push('/login');
+      history.push('/feed');
     }
   }, [history]);
 
   return (
     <Body>
       <Logo src={imgLogo} alt="Logo" />
-      <label htmlFor="email">E-mail*</label>
+
+      <label htmlFor="email"> E-mail*</label>
       <input
         value={email}
         placeholder="e-mail@email.com"
@@ -73,7 +73,7 @@ function Login() {
         type="text"
         onChange={handleUpdateEmail}
       />
-      <label htmlFor="password">Senha*</label>
+      <label htmlFor="password"> Senha*</label>
       <input
         value={password}
         placeholder="Mínimo 6 caracteres"
@@ -82,6 +82,7 @@ function Login() {
         onChange={handleUpdatePassword}
       />
       <button onClick={login}>Entrar</button>
+
       <p onClick={goToRegister}>Não possui cadastro? Clique aqui!</p>
     </Body>
   );

@@ -7,7 +7,6 @@ export const AdressInfo = styled.div`
   align-items: center;
   width: 328px;
   height: 76px;
-  cursor: pointer;
 
   span {
     width: 328px;
@@ -25,4 +24,10 @@ export const AdressInfo = styled.div`
   #gray {
     color: #b8b8b8;
   }
+`;
+
+export const PencilPosition = styled.span`
+  display: flex;
+  width: 328px;
+  height: 76px;
 `;

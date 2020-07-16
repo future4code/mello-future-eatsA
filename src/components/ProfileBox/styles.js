@@ -8,7 +8,6 @@ export const ProfileInfo = styled.div`
   width: 328px;
   height: 70px;
   margin: 16px;
-  cursor: pointer;
 
   span {
     width: 328px;
@@ -21,4 +20,10 @@ export const ProfileInfo = styled.div`
     line-height: normal;
     letter-spacing: -0.39px;
   }
+`;
+
+export const PencilPosition = styled.span`
+  display: flex;
+  width: 328px;
+  height: 76px;
 `;

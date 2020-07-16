@@ -1,18 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { Body, Logo, ContainerForm } from './styles';
 import Api from '../../Api';
-import { useForm } from '../../components/Hooks/useForm';
+import { useForm } from '../../Hooks/useForm';
 import imgLogo from '../../assets/images/logo-future-eats-invert.png';
 
 export default function AddressRegister() {
-  const history = useHistory();
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    onChange(name, value);
-  };
-
   const { form, onChange, resetForm } = useForm({
     street: '',
     number: '',
@@ -21,6 +13,11 @@ export default function AddressRegister() {
     city: '',
     state: '',
   });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    onChange(name, value);
+  };
 
   const addAddress = () => {
     const bodySiginUp = {

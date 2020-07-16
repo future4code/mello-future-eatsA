@@ -1,12 +1,19 @@
 import React from 'react';
-import { ProfileInfo } from './styles';
+import { ProfileInfo, PencilPosition } from './styles';
+import { RiPencilLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
-export default function ProfileBox(props) {
+export default function ProfileBox({ name, email, cpf }) {
   return (
-    <ProfileInfo onClick={props.onClick}>
-      <span>Bruna Oliveira</span>
-      <span>bruna_o@gmail.com</span>
-      <span>333.333.333-33</span>
+    <ProfileInfo>
+      <PencilPosition>
+        <span>{name}</span>
+        <Link to="/editar-perfil">
+          <RiPencilLine size={'1.5em'} color={'black'} />
+        </Link>
+      </PencilPosition>
+      <span>{email}</span>
+      <span>{cpf}</span>
     </ProfileInfo>
   );
 }

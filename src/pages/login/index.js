@@ -6,17 +6,21 @@ import imgLogo from '../../assets/images/logo-future-eats-invert.png';
 
 function Login() {
   const history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const goToRegister = () => {
     history.push('/cadastrar');
   };
-  // ALTERAR O HISTORY ABAIXO PARA FEED e no useEffect tbm
-  const goToFeedPage = () => {
-    history.push('/restaurantes');
+
+  const goToRegisterAddress = () => {
+    history.push('/registrar-endereco');
   };
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // ALTERAR O HISTORY ABAIXO PARA FEED e no useEffect tbm
+  const goToFeedPage = () => {
+    history.push('/perfil');
+  };
 
   const handleUpdateEmail = (event) => {
     setEmail(event.target.value);
@@ -37,7 +41,12 @@ function Login() {
 
       window.localStorage.setItem('token', response.data.token);
       alert('Login realizado com sucesso!');
-      goToFeedPage();
+
+      if (response.data.user.hasAddress === false) {
+        goToRegisterAddress();
+      } else {
+        goToFeedPage();
+      }
     } catch (error) {
       console.log('Algo deu errado no Login!');
       alert('Algo deu errado, tente novamente!');
@@ -48,7 +57,8 @@ function Login() {
     const token = window.localStorage.getItem('token');
     if (token !== null) {
       alert('Você já está logado!');
-      history.push('/error');
+      // ALTERAR PARA O FEED
+      history.push('/login');
     }
   }, [history]);
 

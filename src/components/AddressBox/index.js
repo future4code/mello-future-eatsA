@@ -1,11 +1,18 @@
 import React from 'react';
-import { AdressInfo } from './styles';
+import { AdressInfo, PencilPosition } from './styles';
+import { RiPencilLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 export default function AdressBox(props) {
   return (
-    <AdressInfo onClick={props.onClick}>
-      <span id="gray">Endereço cadastrado</span>
-      <span>Rua Alessandra Vieira, 42 - Santana</span>
+    <AdressInfo>
+      <PencilPosition>
+        <span id="gray">Endereço cadastrado</span>
+        <Link to="/editar-endereco">
+          <RiPencilLine size={'1.5em'} color={'black'} />
+        </Link>
+      </PencilPosition>
+      <span>{props.endereco}</span>
     </AdressInfo>
   );
 }

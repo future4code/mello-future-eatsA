@@ -6,18 +6,6 @@ export const Body = styled.body`
   align-items: center;
   width: 360px;
   height: 640px;
-  border: solid black;
-`;
-
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 360px;
-  height: 44px;
-  margin-top: 20px;
-  /* {(props) props.margin}; */
-  border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
 `;
 
 // =======================================================
@@ -25,8 +13,21 @@ export const Header = styled.header`
 export const ContainerOrder = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 328px;
   height: 307px;
+  margin-top: 8px;
+`;
+
+export const ContainerOrders = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  width: 328px;
+  height: 306px;
+  margin-top: 8px;
+  overflow: auto;
 `;
 
 export const OrderInfo = styled.div`
@@ -38,6 +39,7 @@ export const OrderInfo = styled.div`
   border-radius: 8px;
   border: solid 1px #b8b8b8;
   margin-top: 8px;
+  overflow: auto;
 
   span {
     width: 296px;

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Body, Header, ContainerForm } from './styles';
+import { Body, ContainerForm } from './styles';
 import Api from '../../Api';
 import { useForm } from '../../Hooks/useForm';
+import FooterProfile from '../../components/FooterProfile';
+import Header from '../../components/Header';
 
 export default function AddressEdit() {
   const history = useHistory();
@@ -75,7 +77,7 @@ export default function AddressEdit() {
 
   return (
     <Body>
-      <Header>Editar endereço</Header>
+      <Header to="/perfil" title="Endereço" />
       <ContainerForm onSubmit={handleSubmit}>
         <label htmlFor="publicPlace">Logradouro*</label>
         <input
@@ -132,6 +134,7 @@ export default function AddressEdit() {
         />
         <button>Salvar</button>
       </ContainerForm>
+      <FooterProfile profileIcon={true} />
     </Body>
   );
 }

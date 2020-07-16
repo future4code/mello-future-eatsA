@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Main = styled.main`
   display: flex;
@@ -8,6 +8,7 @@ export const Main = styled.main`
   border: 1px solid #b8b8b8;
   margin-top: 8px;
   border-radius: 8px;
+  cursor: pointer;
   img {
     width: 326px;
     height: 120px;
@@ -44,4 +45,4 @@ export const Main = styled.main`
       color: #b8b8b8;
     }
   }
-` 
+`;

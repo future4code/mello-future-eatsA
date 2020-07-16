@@ -4,6 +4,7 @@ import { Body, Logo, ContainerForm } from './styles';
 import Api from '../../Api';
 import { useForm } from '../../Hooks/useForm';
 import imgLogo from '../../assets/images/logo-future-eats-invert.png';
+import Header from '../../components/Header';
 
 export default function SignUp() {
   const history = useHistory();
@@ -49,10 +50,10 @@ export default function SignUp() {
 
   return (
     <Body>
+      <Header to={'/login'} />
       <Logo src={imgLogo} alt="Logo" />
+      <p>Cadastrar</p>
       <ContainerForm onSubmit={handleSubmit}>
-        <h4>Cadastrar</h4>
-
         <label htmlFor="name">Nome*</label>
         <input
           required

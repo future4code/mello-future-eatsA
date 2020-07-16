@@ -1,19 +1,17 @@
-import React from 'react'
-import {
-  Main
-} from './style'
+import React from 'react';
+import { Main } from './style';
 
 function RestaurantCard(props) {
-  return(
+  return (
     <Main>
-      <img src={props.imageRestaurant} />
-      <p className='Restaurante'>{props.restaurantName}</p>
+      <img src={props.imageRestaurant} alt="imagem-restaurante" />
+      <p className="Restaurante">{props.restaurantName}</p>
       <div>
         <span>{props.deliveryTime} min</span>
         <span>Frete R$ {props.shipping}</span>
       </div>
     </Main>
-  )
+  );
 }
 
-export default RestaurantCard
+export default RestaurantCard;

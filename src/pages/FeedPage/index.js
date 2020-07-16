@@ -7,57 +7,24 @@ import HomeIcon from '../../assets/images/homepage.svg'
 import ShoppingCart from '../../assets/images/shopping-cart.svg'
 import Avatar from '../../assets/images/avatar.svg'
 import { useHistory } from 'react-router-dom';
-
-const AppContainer = styled.div`
-
-  input {
-    padding-left: 56.3px;
-  }
-`
-
-const Filters = styled.div`
-  max-width: 360px;
-  width: 100%;
-  margin-top: 22px;
-  display: flex;
-  flex-wrap: no-wrap;
-  align-items: center;
-  overflow: auto;
-
-  span {
-    margin-left: 16px;
-    padding: 16px;
-  }
-`
-
-const Search = styled.div`
-  margin: 16px;
-`
-
-const SearchIcon = styled.span`
-  margin-top: -40px;
-  margin-left: 17px;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  top: 1px;
-  color: #13abe1;
-  position: relative;
-  left: 0px;
-`;
-
-
+import {
+  Search,
+  AppContainer,
+  SearchIcon,
+  Filters,
+  NoResultsText
+} from './style'
 
 export default function FeedPage() {
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsFilter, setRestaurantsFilter] = useState([])
   const [search, setSearch] = useState('')
+  const [clickedSameCategory, setClickedSameCategory] = useState(false)
+  const [categoryCopy, setCategoryCopy] = useState('')
 
   const history = useHistory()
 
-
   const categories = ['Árabe', 'Asiática', 'Hamburguer', 'Italiana', 'Sorvetes', 'Carnes', 'Mexicana', 'Baiana', 'Petiscos']
-
 
   useEffect(() => {
     getRestaurants()
@@ -67,10 +34,7 @@ export default function FeedPage() {
     filterByInput()
   }, [search])
 
-  
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVLb2tqZE9Va216YW9idHVSbkZKIiwibmFtZSI6Ikxlb25hbSIsImVtYWlsIjoiZGV2Lmxlb25hbUBnbWFpbC5jb20iLCJjcGYiOiIxMjMuNDU2Ljc4OS0xMCIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJSdWEgZG9zIGJvYm9zLCAwMDAsIDk4IC0gVmlsYSBkZSBPeiIsImlhdCI6MTU5NDczNzQ2OX0.ySk_6jplN3oNpXVwlX8I6Zh0_D4foS7idcVgm5rP4yo"
-
-
 
   const getRestaurants = () => {
     
@@ -99,6 +63,13 @@ export default function FeedPage() {
     setRestaurantsFilter(restaurants.filter((restaurant) => {
       return restaurant.category === category
     }))
+    if(categoryCopy != category) {
+      setCategoryCopy(category)
+      setClickedSameCategory(false)
+    } else {
+      setClickedSameCategory(true)
+      setRestaurantsFilter(restaurants)
+    }
   }
 
   function filterByInput() {
@@ -106,10 +77,7 @@ export default function FeedPage() {
       return restaurant.name.toLowerCase().includes(search)
     }))
   }
-
   
-
-
   return <AppContainer>
     <Search>
       <input onChange={onChangeSearch} value={search} placeholder="Restaurante"/>
@@ -117,14 +85,21 @@ export default function FeedPage() {
         <MdSearch size={24} color={"#b8b8b8"}/>
       </SearchIcon>
     </Search>
-
     <Filters>
       {categories.map((item) => {
-        return <span key={item} onClick={() => filterByCategory(item)}>{item}</span>
+        return (
+          <span 
+            tabIndex='1'
+            sameCategory={clickedSameCategory}
+            key={item} 
+            onClick={() => filterByCategory(item)}>
+            {item}
+          </span>)
       })}
     </Filters>
-    
-    {restaurantsFilter.map(restaurant => {
+    {restaurantsFilter.length === 0 ? 
+      <NoResultsText>Não encontramos :(</NoResultsText> :
+      restaurantsFilter.map(restaurant => {
       return (
         <div className="feed" key={restaurant.id}>
           <RestaurantCard

@@ -17,14 +17,6 @@ export const Filters = styled.div`
   flex-wrap: no-wrap;
   align-items: center;
   overflow: auto;
-  span {
-    margin-left: 16px;
-    padding: 16px;
-    cursor: pointer;
-    :focus {
-      color: ${({ same }) => (same ? 'black' : '#5cb646')};
-    }
-  }
 `;
 
 export const NoResultsText = styled.div`
@@ -52,3 +44,12 @@ export const FixedHeader = styled.div`
   padding-top: 8px;
   background-color: white;
 `;
+
+export const Categories = styled.span`
+  margin-left: 16px;
+  padding: 16px;
+  cursor: pointer;
+  :focus {
+    color: ${({ sameCategory }) => (sameCategory ? 'black' : '#5cb646')};
+  }
+`

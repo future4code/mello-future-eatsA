@@ -9,6 +9,7 @@ import {
   Filters,
   NoResultsText,
   FixedHeader,
+  Categories
 } from './style';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -21,7 +22,7 @@ export default function FeedPage() {
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsFilter, setRestaurantsFilter] = useState([]);
   const [search, setSearch] = useState('');
-  const [clickedSameCategory, setClickedSameCategory] = useState('');
+  const [clickedSameCategory, setClickedSameCategory] = useState(false);
   const [categoryCopy, setCategoryCopy] = useState('');
 
   const categories = [
@@ -84,8 +85,10 @@ export default function FeedPage() {
       setCategoryCopy(category);
       setClickedSameCategory(false);
     } else {
-      setClickedSameCategory(true);
-      setRestaurantsFilter(restaurants);
+      setClickedSameCategory(!clickedSameCategory);
+      if(!clickedSameCategory) {
+        setRestaurantsFilter(restaurants);
+      }
     }
   }
 
@@ -120,14 +123,14 @@ export default function FeedPage() {
           <Filters>
             {categories.map((item) => {
               return (
-                <span
+                <Categories
                   tabIndex="1"
-                  samecategory={clickedSameCategory}
+                  sameCategory={clickedSameCategory}
                   key={item}
                   onClick={() => filterByCategory(item)}
                 >
                   {item}
-                </span>
+                </Categories>
               );
             })}
           </Filters>

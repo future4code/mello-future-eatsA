@@ -1,10 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Body, ContainerForm } from './styles';
 import Api from '../../Api';
 import { useForm } from '../../Hooks/useForm';
 import Header from '../../components/Header';
 
 export default function AddressRegister() {
+  const history = useHistory();
+
   const { form, onChange, resetForm } = useForm({
     street: '',
     number: '',
@@ -40,6 +43,7 @@ export default function AddressRegister() {
         console.log(response);
         alert('Endereço salvo!');
         window.localStorage.setItem('token', response.data.token);
+        history.push('/feed');
       })
       .catch((err) => {
         console.log('Erro ao salvar endereço!');

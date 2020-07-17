@@ -5,7 +5,6 @@ export const Body = styled.body`
   flex-direction: column;
   width: 360px;
   height: 640px;
-  border: solid black;
 
   p {
     margin-top: 28px;

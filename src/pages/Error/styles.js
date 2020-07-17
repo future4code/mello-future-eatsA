@@ -6,7 +6,6 @@ export const Body = styled.body`
   align-items: center;
   width: 360px;
   height: 640px;
-  border: solid black;
 `;
 
 export const Logo = styled.img`

@@ -6,6 +6,9 @@ export const HeaderBox = styled.header`
   height: 44px;
   margin-top: 20px;
   border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
 `;
 
 export const ArrowPosition = styled.div`

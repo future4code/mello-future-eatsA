@@ -79,10 +79,10 @@ export const MethodPayment = styled.div`
   margin-left: 16px;
   margin-right: 16px;
   input {
-    width: 0;
-    height: 0;
-    margin-top: 8px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
+    border: solid 5px black;
   }
   button {
     margin-top: 30px;
@@ -94,6 +94,9 @@ export const Options = styled.label`
   font-size: 16px;
   color: #000;
   width: 160px;
+  height: 24px;
+  display: flex; 
+  align-items: center;
   p {
     margin: 0;
   }

@@ -9,7 +9,8 @@ import {
   Filters,
   NoResultsText,
   FixedHeader,
-  Categories
+  Categories,
+  Restaurant,
 } from './style';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -86,7 +87,7 @@ export default function FeedPage() {
       setClickedSameCategory(false);
     } else {
       setClickedSameCategory(!clickedSameCategory);
-      if(!clickedSameCategory) {
+      if (!clickedSameCategory) {
         setRestaurantsFilter(restaurants);
       }
     }
@@ -143,6 +144,7 @@ export default function FeedPage() {
             return (
               <div className="feed" key={restaurant.id}>
                 <RestaurantCard
+                  to={`restaurante/${restaurant.id}`}
                   imageRestaurant={restaurant.logoUrl}
                   restaurantName={restaurant.name}
                   deliveryTime={restaurant.deliveryTime}

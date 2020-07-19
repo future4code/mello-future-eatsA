@@ -11,6 +11,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import AddressEdit from './pages/AddressEdit';
 
 import Feed from './pages/FeedPage';
+import Restaurant from './pages/Restaurant';
 import Cart from './pages/Cart';
 
 import Error from './pages/Error';
@@ -27,6 +28,7 @@ export default function Routes() {
       <Route path="/editar-endereco" exact component={AddressEdit} />
       <Route path="/carrinho" exact component={Cart} />
       <Route path="/feed" exact component={Feed} />
+      <Routes path="/restaurante" exact component={Restaurant} />
       <Route path="" exact component={Error} />
     </Switch>
   );

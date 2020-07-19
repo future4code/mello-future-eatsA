@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const AppContainer = styled.div`
   width: 360px;
@@ -52,4 +53,8 @@ export const Categories = styled.span`
   :focus {
     color: ${({ sameCategory }) => (sameCategory ? 'black' : '#5cb646')};
   }
-`
+`;
+
+export const Restaurant = styled(Link)`
+  text-decoration: none;
+`;
